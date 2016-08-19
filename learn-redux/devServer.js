@@ -1,3 +1,4 @@
+// These files are just tooling for hot reloading, not part of app itself.
 var path = require('path');
 var express = require('express');
 var webpack = require('webpack');
