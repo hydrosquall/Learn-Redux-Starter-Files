@@ -1,4 +1,4 @@
-// handle upates to posts
+// handle updates to posts
 // A reducer takes in 2 things:
 // 1. An action (info about what happened)
 // 2. copy of current state
@@ -24,6 +24,7 @@ function posts(state = [], action) {
       ];
     // return the updated state
     default: 
+      // console.log("didn't match other cases");
       return state;
 
   }
