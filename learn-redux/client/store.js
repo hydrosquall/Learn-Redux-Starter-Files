@@ -13,7 +13,7 @@ import posts from './data/posts';
 // Create an object for the default data
 const defaultState = {
   posts,
-  comments, // key equivalent to 'comments': comments, es6 syntax sugar
+  comments // key equivalent to 'comments': comments, es6 syntax sugar
 };
 
 // Make the store and history available to other things.

@@ -5,7 +5,10 @@
 // -> should return next state!
 // Given action, store... return an updated store!
 
+// test with this:
+// $r.store.dispatch({type: 'INCREMENT_LIKES', index: 0});
 function posts(state = [], action) {
+  console.log("The post will change");
   console.log(state,action);
   return state;
 }

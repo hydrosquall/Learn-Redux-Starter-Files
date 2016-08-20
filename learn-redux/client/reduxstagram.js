@@ -11,17 +11,22 @@ import Single from './components/Single';
 import PhotoGrid from './components/PhotoGrid';
 
 // import react router dependencies
+import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import store, { history } from './store';
 
+// Select provider, then call : $r.store.getState();
 const router = (
-  <Router history={browserHistory}>  
-    <Route path="/" component={Main}>
-      <IndexRoute  component={PhotoGrid}> </IndexRoute>
-      <Route path="/view/:postId" component={Single}></Route>
-    </Route>
-  </Router>
+  <Provider store={store}>
+    <Router history={history}>
+      <Route path="/" component={Main}>
+        <IndexRoute component={PhotoGrid}></IndexRoute>
+        <Route path="/view/:postId" component={Single}></Route>
+      </Route>
+    </Router>
+  </Provider>
+)
 
-);
 // Use indexRoute by default... but use the other route if the url string matches.
 render(
     router, 

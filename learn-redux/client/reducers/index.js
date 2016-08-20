@@ -1,5 +1,4 @@
 // this combines all the other reducers
-
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux'; // which page you're on
 
@@ -7,6 +6,6 @@ import { routerReducer } from 'react-router-redux'; // which page you're on
 import posts from './posts';
 import comments from './comments';
 
-const rootReducer = combineReducers({posts, comments, routerReducer });
+const rootReducer = combineReducers({posts, comments, routing: routerReducer });
 
 export default rootReducer;
