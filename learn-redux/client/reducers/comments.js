@@ -7,7 +7,7 @@
 
 // everything needs to get mashed into the root reducer in redux
 function comments(state = [], action) {
-  console.log(state,action);
+  // console.log(state,action);
   return state;
 }
 

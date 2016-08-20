@@ -1,6 +1,8 @@
 // could be split into separate files for bigger application
 
 // increment 
+// use with this.props.increment.bind(null,index) so in can work 
+// not just on pageload. bind to particular index :)
 export function increment(index) {
   return {
     type: 'INCREMENT_LIKES',

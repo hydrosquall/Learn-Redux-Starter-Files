@@ -5,11 +5,29 @@
 // -> should return next state!
 // Given action, store... return an updated store!
 
+// it's functional programming... that means you never mutate external state
+
 // test with this:
 // $r.store.dispatch({type: 'INCREMENT_LIKES', index: 0});
 function posts(state = [], action) {
-  console.log("The post will change");
-  console.log(state,action);
+
+  // console.log("The post will change");
+
+  switch(action.type) {
+    case 'INCREMENT_LIKES' :
+      console.log("Incrementing Likes");
+      const i = action.index;
+      return  [
+        ...state.slice(0,i), // before the one we update
+        {...state[i], likes: state[i].likes + 1 },
+        ...state.slice(i+1) // after the one we are updating
+      ];
+    // return the updated state
+    default: 
+      return state;
+
+  }
+  // console.log(state,action);
   return state;
 }
 
