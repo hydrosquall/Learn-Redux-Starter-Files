@@ -15,6 +15,28 @@ import { Provider } from 'react-redux';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import store, { history } from './store';
 
+import Raven from 'raven-js';
+import { sentry_url, logException } from './data/config';
+
+Raven.config(sentry_url,{
+  tags: {
+    git_commit: 'asdfa', //(dynamically set this)
+    userLevel: 'editor'
+  }
+}).install(); // just 3 lines to make error catcher!
+
+// put inside a try-catch.
+logException(new Error('download failed'), {
+  email: 'wesbos' // set this dynamically!
+}); // use custom catcher
+
+// sample bad code
+console.log(window.doesNotExist.nope);
+
+// Alternately set some custom notices.
+Raven.captureMessage('Something bad happened!');
+Raven.showReportDialog(); // triggers a thing that lets someone send crash report right away!
+
 // Select provider, then call : $r.store.getState();
 const router = (
   <Provider store={store}>
